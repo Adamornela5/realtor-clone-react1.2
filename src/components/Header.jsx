@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export default function Header() {
-    const [pageState, setPagestate] = useState("Sign in");
+    const [pageState, setPageState] = useState("Sign in");
     const location = useLocation();
     const navigate = useNavigate();
     const auth = getAuth();
@@ -11,9 +11,9 @@ export default function Header() {
     useEffect(()=>{
         onAuthStateChanged(auth, (user)=>{
             if(user){
-                setPagestate("Profile");
+                setPageState("Profile");
             } else {
-                setPagestate("Sign in");
+                setPageState("Sign in");
             }
         });
     }, [auth]);
